@@ -1,0 +1,34 @@
+{
+  "name": "Agentic Codespace",
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "onCreateCommand": "npm install -g @opencode/cli @openai/codex @anthropic-ai/claude-code",
+  "postCreateCommand": "bash .devcontainer/setup-shell.sh",
+  "secrets": {
+    "OPENROUTER_API_KEY": {
+      "description": "Your OpenRouter API key. OpenCode uses it to reach models through OpenRouter.",
+      "documentationUrl": "https://openrouter.ai/keys"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "cweijan.vscode-office"
+      ],
+      "settings": {
+        "workbench.editorAssociations": {
+          "*.pptx": "cweijan.officeViewer",
+          "*.pptm": "cweijan.officeViewer",
+          "*.docx": "cweijan.officeViewer",
+          "*.xlsx": "cweijan.officeViewer",
+          "*.xls": "cweijan.officeViewer"
+        }
+      }
+    }
+  }
+}
